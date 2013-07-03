@@ -28,12 +28,14 @@ public:
     void addFormField(const string& fieldName, const string& value);
     void addFormField(CURLformoption optionA, const string& valueA, CURLformoption optionB, const string& valueB);
     void addHeader(string header_line);
-    void perform();
+    void perform(bool clean = ofxSSL::appendData);
     
     string getResponseHeader() const;
     string getResponseBody() const;
 
     void cleanup();
+
+    static bool appendData;
 protected:
     //variables
     CURL* handle;
