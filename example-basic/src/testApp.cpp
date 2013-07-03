@@ -21,7 +21,7 @@ void testApp::keyPressed(int key){
             break;
             
         case '2':
-            curl.setURL("http://www.ofxaddons.com");
+            curl.setURL("http://217.115.71.165/v1.0.1/Trips/");
             curl.perform();
             result = curl.getResponseBody();
             break;
