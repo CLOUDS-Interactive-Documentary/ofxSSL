@@ -1,9 +1,9 @@
-ofxSSL
+ofxSSL (branch for oF 0.7.1 - 0.7.3)
 ======
 
 openFrameworks addon wrapping libcURL with support for SSL requests using openSSL.
 
-Tested and up to date with 0.7.4+
+Tested on linux for 0.7.1 - 0.7.3 but without SSL at the moment ...
 
 openSSL libraries are now included with openFrameworks by default.
 
