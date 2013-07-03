@@ -13,13 +13,13 @@ OF_ROOT = ../../..
 USER_CFLAGS = 
 
 
-# USER_LDFLAGS allows to pass custom flags to the linker
+# USER_LDFLAGS allows to pass custom flags to the li	nker
 # for example libraries like:
 # USER_LDFLAGS = libs/libawesomelib.a
 
 USER_LDFLAGS =
 
-USER_LIBS = -lcurl
+#USER_LIBS = -lcurl
 
 
 EXCLUDE_FROM_SOURCE="bin,.xcodeproj,obj"
