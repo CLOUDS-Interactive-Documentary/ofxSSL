@@ -1,5 +1,7 @@
 #include "ofxSSL.h"
 
+bool ofxSSL::appendData = false;
+
 //--------------------------------------------------------------
 ofxSSL::ofxSSL() {
     ofAddListener(ofEvents().setup, this, &ofxSSL::setup);
@@ -72,7 +74,10 @@ void ofxSSL::addHeader(string header_line){
 }
 
 //--------------------------------------------------------------
-void ofxSSL::perform() {
+void ofxSSL::perform(bool clean) {
+	if(clean){
+		content = "";
+	}
     
     curl_easy_setopt(handle, CURLOPT_VERBOSE, ofGetLogLevel() <= OF_LOG_VERBOSE);
     curl_easy_setopt(handle, CURLOPT_NOPROGRESS, ofGetLogLevel() <= OF_LOG_VERBOSE ? 0 : 1);
@@ -134,9 +139,14 @@ string ofxSSL::getResponseBody() const {
 
 //--------------------------------------------------------------
 size_t ofxSSL::content_writer(char *ptr, size_t size, size_t nmemb, string userdata) {
-        
+
     string content(static_cast<const char*>(ptr), size * nmemb);
-    userdata = content;
+
+    if(ofxSSL::appendData){
+    	userdata += content;
+    }else{
+    	userdata = content;
+    }
         
     return size * nmemb;
 }
