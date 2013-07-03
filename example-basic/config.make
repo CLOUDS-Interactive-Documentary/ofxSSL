@@ -19,6 +19,8 @@ USER_CFLAGS =
 
 USER_LDFLAGS =
 
+USER_LIBS = -lcurl
+
 
 EXCLUDE_FROM_SOURCE="bin,.xcodeproj,obj"
 
