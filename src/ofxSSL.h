@@ -30,12 +30,12 @@ public:
     void addHeader(string header_line);
     void perform(bool clean = ofxSSL::appendData);
 
-	string getResponseHeader() const;
-	string getResponseBody() const;
+    string getResponseHeader() const;
+    string getResponseBody() const;
 
-	void cleanup();
+    void cleanup();
 
-	static bool appendData;
+    static bool appendData;
 protected:
     //variables
     CURL* handle;
