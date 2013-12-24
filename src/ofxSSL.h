@@ -26,6 +26,7 @@ public:
     void setOpt(CURLoption option, int value);
     void setUploadFile(string filename);
     void addFormField(const string& fieldName, const string& value);
+    void addFormFile(const string& fieldName, const string& absoluteFilePath, const string& contentType);
     void addFormField(CURLformoption optionA, const string& valueA, CURLformoption optionB, const string& valueB);
     void addHeader(string header_line);
     void perform(bool clean = ofxSSL::appendData);

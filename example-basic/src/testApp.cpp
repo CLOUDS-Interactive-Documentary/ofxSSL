@@ -1,5 +1,7 @@
 #include "testApp.h"
 
+string uploadfile;
+
 //--------------------------------------------------------------
 void testApp::setup(){
     ofBackground(0);
@@ -25,7 +27,20 @@ void testApp::keyPressed(int key){
             curl.perform();
             result = curl.getResponseBody();
             break;
-            
+        case '3':
+            curl.setURL("https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US");
+
+            // set form
+            uploadfile = ofToDataPath("speechToText.flac",true);
+            curl.addFormFile("file",uploadfile,"audio/x-flac");
+
+            // set header
+            curl.addHeader("Expect:");
+            curl.addHeader("Content-Type: audio/x-flac; rate=16000");
+
+            curl.perform();
+            result = curl.getResponseBody();
+            break;
         default:
             break;
     }

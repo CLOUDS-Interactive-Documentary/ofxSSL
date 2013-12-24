@@ -63,6 +63,15 @@ void ofxSSL::addFormField(const string& fieldName, const string& value) {
 }
 
 //--------------------------------------------------------------
+void ofxSSL::addFormFile(const string& fieldName, const string& absoluteFilePath, const string& contentType){
+	curl_formadd(&post, &last,
+		CURLFORM_COPYNAME, fieldName.c_str(),
+		CURLFORM_FILE, absoluteFilePath.c_str(),
+		CURLFORM_CONTENTTYPE, contentType.c_str(),
+		CURLFORM_END);
+}
+
+//--------------------------------------------------------------
 void ofxSSL::addFormField(CURLformoption optionA, const string& valueA, CURLformoption optionB, const string& valueB) {
     
     curl_formadd(&post, &last, optionA, valueA.c_str(), optionB, valueB.c_str());
