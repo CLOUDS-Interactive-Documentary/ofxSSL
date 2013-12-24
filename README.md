@@ -11,5 +11,5 @@ For linux, make sure you have the following package installed:
 
 `apt-get install libcurl4-openssl-dev`
 
-BasicExample project makes three curl requests, the third of which is over SSL.  Watch the console for curl reporting.
+BasicExample project makes three curl requests, the second of which is over SSL.  The third demonstates file upload via form over SSL (to google's speech to text api).
 
