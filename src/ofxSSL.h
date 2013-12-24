@@ -21,6 +21,7 @@ public:
     
     //methods
     void setup(ofEventArgs &e);
+    void setup();
     void setURL(const string& url);
     void setOpt(CURLoption option, const string& value);
     void setOpt(CURLoption option, int value);
@@ -35,6 +36,10 @@ public:
     string getResponseBody() const;
 
     void cleanup();
+    void clear(){
+        cleanup();
+        setup();
+    };
 
     static bool appendData;
 protected:

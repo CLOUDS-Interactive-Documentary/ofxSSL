@@ -15,6 +15,11 @@ ofxSSL::~ofxSSL() {
 
 //--------------------------------------------------------------
 void ofxSSL::setup(ofEventArgs &e) {
+    setup();
+}
+
+//--------------------------------------------------------------
+void ofxSSL::setup() {
     curl_global_init(CURL_GLOBAL_ALL);
     handle = curl_easy_init();
     post = NULL;

@@ -40,6 +40,8 @@ void testApp::keyPressed(int key){
 
             curl.perform();
             result = curl.getResponseBody();
+
+            curl.clear();
             break;
         default:
             break;
