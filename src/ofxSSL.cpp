@@ -96,7 +96,12 @@ void ofxSSL::perform(bool clean) {
     curl_easy_setopt(handle, CURLOPT_VERBOSE, ofGetLogLevel() <= OF_LOG_VERBOSE);
     curl_easy_setopt(handle, CURLOPT_NOPROGRESS, ofGetLogLevel() <= OF_LOG_VERBOSE ? 0 : 1);
 
-    if(post != NULL) curl_easy_setopt(handle, CURLOPT_HTTPPOST, post);
+    if(post != NULL){
+		curl_easy_setopt(handle, CURLOPT_HTTPPOST, post);
+	}
+	else{	
+		curl_easy_setopt(handle, CURLOPT_HTTPGET);
+	}
     if(header_list != NULL) curl_easy_setopt(handle, CURLOPT_HTTPHEADER, header_list);
     
     ret = curl_easy_perform(handle);
@@ -152,21 +157,23 @@ string ofxSSL::getResponseBody() const {
 }
 
 //--------------------------------------------------------------
-size_t ofxSSL::content_writer(char *ptr, size_t size, size_t nmemb, string userdata) {
+size_t ofxSSL::content_writer(char *ptr, size_t size, size_t nmemb, string& userdata) {
 
-    string content(static_cast<const char*>(ptr), size * nmemb);
+    string s_content(static_cast<const char*>(ptr), size * nmemb);
 
     if(ofxSSL::appendData){
-    	userdata += content;
+    	userdata += s_content;
+		//content += s_content;
     }else{
-    	userdata = content;
+    	userdata = s_content;
+		//content += s_content;
     }
         
     return size * nmemb;
 }
 
 //--------------------------------------------------------------
-size_t ofxSSL::header_writer(char *ptr, size_t size, size_t nmemb, string userdata) {
+size_t ofxSSL::header_writer(char *ptr, size_t size, size_t nmemb, string& userdata) {
     
     string header(static_cast<const char*>(ptr), size * nmemb);
     userdata += header;

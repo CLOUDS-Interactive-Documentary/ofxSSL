@@ -50,8 +50,8 @@ protected:
 private:
     
     //methods
-    static size_t content_writer(char *ptr, size_t size, size_t nmemb, string userdata);
-    static size_t header_writer(char *ptr, size_t size, size_t nmemb, string userdata);
+    static size_t content_writer(char *ptr, size_t size, size_t nmemb, string& userdata);
+    static size_t header_writer(char *ptr, size_t size, size_t nmemb, string& userdata);
     
     //variables
     struct curl_httppost *post;
