@@ -99,9 +99,9 @@ void ofxSSL::perform(bool clean) {
     if(post != NULL){
 		curl_easy_setopt(handle, CURLOPT_HTTPPOST, post);
 	}
-	else{	
-		curl_easy_setopt(handle, CURLOPT_HTTPGET);
-	}
+//	else{	
+//		curl_easy_setopt(handle, CURLOPT_HTTPGET);
+//	}
     if(header_list != NULL) curl_easy_setopt(handle, CURLOPT_HTTPHEADER, header_list);
     
     ret = curl_easy_perform(handle);
