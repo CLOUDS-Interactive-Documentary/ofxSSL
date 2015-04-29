@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ofxSSL">
+      <UniqueIdentifier>{c9f35b88-82b0-45a2-941e-9b00c7fc49a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ofxSSL\src">
+      <UniqueIdentifier>{fdfcca19-83bb-4c4f-ba27-d69762ce6ead}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ofxSSL.cpp">
+      <Filter>ofxSSL\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\ofxSSL.h">
+      <Filter>ofxSSL\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
